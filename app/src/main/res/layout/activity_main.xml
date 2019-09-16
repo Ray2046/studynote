@@ -1,19 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <FrameLayout
+            android:id="@+id/fl_main_content"
+            android:layout_above="@id/fl_main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</FrameLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/float_action_btn"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+            android:id="@+id/fl_main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true">
+
+        <RadioGroup
+                android:id="@+id/rg_main_top"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RadioButton
+                    android:id="@+id/rb_main_shanghai"
+                    android:text="@string/str_main_shanghai"
+                    android:drawableTop="@drawable/selector_main_top_tab_shanghai"
+                    android:textColor="@drawable/selector_main_top_tab_shanghai_textcolor"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"/>
+
+            <RadioButton
+                    android:id="@+id/rb_main_hangzhou"
+                    android:text="@string/str_main_hangzhou"
+                    android:drawableTop="@drawable/selector_main_top_tab_hangzhou"
+                    android:textColor="@drawable/selector_main_top_tab_hangzhou_textcolor"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+
+        <RadioGroup
+                android:gravity="center_vertical"
+                android:visibility="visible"
+                android:id="@+id/rg_main_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
+
+            <RadioButton
+                    android:id="@+id/rb_main_beijing"
+                    style="@style/main_tab_rb_style"
+                    android:drawableTop="@drawable/selector_main_bottom_tab_beijing"
+                    android:text="@string/str_beijing" />
+
+            <RadioButton
+                    android:id="@+id/rb_main_shenzhen"
+                    style="@style/main_tab_rb_style"
+                    android:drawableTop="@drawable/selector_main_bottom_tab_shenzhen"
+                    android:text="@string/str_shenzhen" />
+        </RadioGroup>
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>

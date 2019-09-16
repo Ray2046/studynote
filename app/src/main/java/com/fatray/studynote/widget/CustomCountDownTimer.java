@@ -38,6 +38,7 @@ public class CustomCountDownTimer implements Runnable {
                 if (countDownHandler != null){
                     countDownHandler.onFinish();
                 }
+                cancel();
             }else {
                 countDowntime--;
                 handler.postDelayed(this, 1000);
